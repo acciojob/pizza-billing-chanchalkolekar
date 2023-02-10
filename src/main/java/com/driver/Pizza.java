@@ -6,29 +6,81 @@ public class Pizza {
     private Boolean isVeg;
     private String bill;
 
-    public Pizza(Boolean isVeg){
+    // taking some boolean variables
+    boolean isExtraCheeseAdded;
+    boolean isExtraToppingAdded;
+    boolean isTakeAway;
+    boolean generateBill;
+    private int Toopings;
+
+    public Pizza(Boolean isVeg) {
         this.isVeg = isVeg;
         // your code goes here
+        // if user select veg pizza the it vegpizza variable become true
+        // if it gets true then the pizza value will be 300 and toopings 70
+        // if it is non veg then pizza price is 400 and topping 120
+        if (isVeg) {
+            this.price = 300;
+            this.Toopings = 70;
+        } else {
+            this.price = 400;
+            this.Toopings = 120;
+        }
+        // whatever the user selected add that price in bill
+        this.bill += "Base Price Of The Pizza: " + this.price + "\n";
+
     }
 
-    public int getPrice(){
+    public int getPrice() {
         return this.price;
     }
 
-    public void addExtraCheese(){
+    public void addExtraCheese() {
         // your code goes here
+        if (!isExtraCheeseAdded) {
+            this.price += 80;
+            this.isExtraCheeseAdded = true;
+        }
     }
 
-    public void addExtraToppings(){
+    public void addExtraToppings() {
         // your code goes here
+        if (!isExtraToppingAdded) {
+            // this.price += 80;
+            this.isExtraToppingAdded = true;
+        }
     }
 
-    public void addTakeaway(){
+    public void addTakeaway() {
         // your code goes here
+        if (!isTakeAway) {
+            this.price += 20;
+            this.isTakeAway = true;
+        }
     }
 
-    public String getBill(){
+    public String getBill() {
         // your code goes here
-        return this.bill;
+        // now checking if bill is not generated then adding expensis in the bill
+        if (!generateBill) {
+            // checking if user is added chesse
+            if (isExtraCheeseAdded) {
+                this.bill += "Extra Cheese Added: 80" + "\n";
+            }
+            // checking if user added toopings
+            if (isExtraToppingAdded) {
+                this.bill += "Extra Toppings Added: " + this.Toopings + "\n";
+            }
+            // checking iff user take away the item
+            if (isTakeAway) {
+                this.bill += "Paperbag Added: 20" + "\n";
+            }
+            // final adding the total price in bill
+            this.bill += "Total Price: " + this.price + "\n";
+            this.generateBill = true; // now bill is generated so we will change the status of genratebill variable to
+                                      // true
+            return this.bill;
+        }
+        return "";
     }
 }
