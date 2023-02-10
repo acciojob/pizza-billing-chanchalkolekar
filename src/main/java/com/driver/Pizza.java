@@ -9,8 +9,9 @@ public class Pizza {
     // taking some boolean variables
     boolean isExtraCheeseAdded;
     boolean isExtraToppingAdded;
+    boolean isBillCreated;
     boolean isTakeAway;
-    boolean generateBill;
+
     private int Toopings;
 
     public Pizza(Boolean isVeg) {
@@ -28,8 +29,9 @@ public class Pizza {
         }
         isExtraCheeseAdded = false;
         isExtraToppingAdded = false;
+        isBillCreated = false;
         isTakeAway = false;
-        generateBill = false;
+
         // whatever the user selected add that price in bill
         this.bill += "Base Price Of The Pizza: " + this.price + "\n";
 
@@ -66,7 +68,7 @@ public class Pizza {
     public String getBill() {
         // your code goes here
         // now checking if bill is not generated then adding expensis in the bill
-        if (!generateBill) {
+        if (!isBillCreated) {
             // checking if user is added chesse
             if (isExtraCheeseAdded) {
                 this.bill += "Extra Cheese Added: 80" + "\n";
@@ -80,9 +82,9 @@ public class Pizza {
                 this.bill += "Paperbag Added: 20" + "\n";
             }
             // final adding the total price in bill
-            this.bill += "Total Price: " + this.price + "\n";
-            this.generateBill = true; // now bill is generated so we will change the status of genratebill variable to
-                                      // true
+            this.bill += "Total Price: " + this.price;
+            this.isBillCreated = true; // now bill is generated so we will change the status of genratebill variable to
+                                       // true
             return this.bill;
         }
         return "";
