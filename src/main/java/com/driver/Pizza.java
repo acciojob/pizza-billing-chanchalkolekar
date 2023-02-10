@@ -33,7 +33,7 @@ public class Pizza {
         isTakeAway = false;
 
         // whatever the user selected add that price in bill
-        this.bill += "Base Price Of The Pizza: " + this.price + "\n";
+        this.bill = "Base Price Of The Pizza: " + this.price + "\n";
 
     }
 
