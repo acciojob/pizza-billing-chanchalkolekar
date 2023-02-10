@@ -26,6 +26,10 @@ public class Pizza {
             this.price = 400;
             this.Toopings = 120;
         }
+        isExtraCheeseAdded = false;
+        isExtraToppingAdded = false;
+        isTakeAway = false;
+        generateBill = false;
         // whatever the user selected add that price in bill
         this.bill += "Base Price Of The Pizza: " + this.price + "\n";
 
@@ -47,7 +51,7 @@ public class Pizza {
         // your code goes here
         if (!isExtraToppingAdded) {
             this.price += this.Toopings;
-            this.isExtraToppingAdded = true;
+            isExtraToppingAdded = true;
         }
     }
 
@@ -55,7 +59,7 @@ public class Pizza {
         // your code goes here
         if (!isTakeAway) {
             this.price += 20;
-            this.isTakeAway = true;
+            isTakeAway = true;
         }
     }
 
