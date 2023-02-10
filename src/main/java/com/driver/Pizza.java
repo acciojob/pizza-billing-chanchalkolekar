@@ -46,7 +46,7 @@ public class Pizza {
     public void addExtraToppings() {
         // your code goes here
         if (!isExtraToppingAdded) {
-            // this.price += 80;
+            this.price += this.Toopings;
             this.isExtraToppingAdded = true;
         }
     }
