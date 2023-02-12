@@ -13,9 +13,12 @@ public class Pizza {
     boolean isTakeAway;
 
     private int Toopings;
+    private int base;
+    private int cheese;
 
     public Pizza(Boolean isVeg) {
         this.isVeg = isVeg;
+        this.bill = "";
         // your code goes here
         // if user select veg pizza the it vegpizza variable become true
         // if it gets true then the pizza value will be 300 and toopings 70
@@ -31,7 +34,7 @@ public class Pizza {
         isExtraToppingAdded = false;
         isBillCreated = false;
         isTakeAway = false;
-
+        this.cheese = 80;
         // whatever the user selected add that price in bill
         this.bill = "Base Price Of The Pizza: " + this.price + "\n";
 
@@ -44,15 +47,15 @@ public class Pizza {
     public void addExtraCheese() {
         // your code goes here
         if (!isExtraCheeseAdded) {
-            this.price += 80;
-            this.isExtraCheeseAdded = true;
+            this.price += cheese;
+            isExtraCheeseAdded = true;
         }
     }
 
     public void addExtraToppings() {
         // your code goes here
         if (!isExtraToppingAdded) {
-            this.price += this.Toopings;
+            this.price = this.price + this.Toopings;
             isExtraToppingAdded = true;
         }
     }
@@ -71,7 +74,7 @@ public class Pizza {
         if (!isBillCreated) {
             // checking if user is added chesse
             if (isExtraCheeseAdded) {
-                this.bill += "Extra Cheese Added: 80" + "\n";
+                this.bill += "Extra Cheese Added: " + this.cheese + "\n";
             }
             // checking if user added toopings
             if (isExtraToppingAdded) {
@@ -79,14 +82,15 @@ public class Pizza {
             }
             // checking iff user take away the item
             if (isTakeAway) {
-                this.bill += "Paperbag Added: 20" + "\n";
+                this.bill += "Paperbag Added: " + "20" + "\n";
             }
             // final adding the total price in bill
-            this.bill += "Total Price: " + this.price;
+            this.bill += "Total Price: " + this.price + "\n";
             this.isBillCreated = true; // now bill is generated so we will change the status of genratebill variable to
                                        // true
             return this.bill;
         }
         return "";
     }
+
 }
