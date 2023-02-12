@@ -18,25 +18,26 @@ public class Pizza {
 
     public Pizza(Boolean isVeg) {
         this.isVeg = isVeg;
+        isExtraCheeseAdded = false;
+        isExtraToppingAdded = false;
+        isBillCreated = false;
+        isTakeAway = false;
         this.bill = "";
         // your code goes here
         // if user select veg pizza the it vegpizza variable become true
         // if it gets true then the pizza value will be 300 and toopings 70
         // if it is non veg then pizza price is 400 and topping 120
-        if (isVeg) {
+        if (isVeg == true) {
             this.price = 300;
             this.Toopings = 70;
         } else {
             this.price = 400;
             this.Toopings = 120;
         }
-        isExtraCheeseAdded = false;
-        isExtraToppingAdded = false;
-        isBillCreated = false;
-        isTakeAway = false;
+
         this.cheese = 80;
         // whatever the user selected add that price in bill
-        this.bill = "Base Price Of The Pizza: " + this.price + "\n";
+        this.bill += "Base Price Of The Pizza: " + this.price + "\n";
 
     }
 
@@ -88,9 +89,9 @@ public class Pizza {
             this.bill += "Total Price: " + this.price + "\n";
             this.isBillCreated = true; // now bill is generated so we will change the status of genratebill variable to
                                        // true
-            return this.bill;
+
         }
-        return "";
+        return this.bill;
     }
 
 }
